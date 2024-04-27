@@ -3,28 +3,34 @@ import travelGif from "../../assets/images/travel.gif"
 const Footer = () => {
   return (
     <div className="bg-slate-200">
-      <footer className="footer p-10 bg-slate-200 max-w-7xl mx-auto text-base-content">
-        <nav>
+      <footer className="flex flex-col md:flex-row lg:flex-row items-center md:items-start lg:items-start md:justify-between lg:justify-between gap-4 md:gap-0 lg:gap-0 p-10 bg-slate-200 max-w-7xl mx-auto text-base-content">
+        <nav className="text-center md:text-left lg:text-left">
           <h6 className="footer-title">Services</h6>
+          <div className="flex flex-col">
           <a className="link link-hover">Branding</a>
           <a className="link link-hover">Design</a>
           <a className="link link-hover">Marketing</a>
           <a className="link link-hover">Advertisement</a>
+          </div>
         </nav>
-        <nav>
+        <nav className="text-center md:text-left lg:text-left">
           <h6 className="footer-title">Company</h6>
+          <div className="flex flex-col">
           <a className="link link-hover">About us</a>
           <a className="link link-hover">Contact</a>
           <a className="link link-hover">Jobs</a>
           <a className="link link-hover">Press kit</a>
+          </div>
         </nav>
-        <nav>
+        <nav className="text-center md:text-left lg:text-left">
           <h6 className="footer-title">Legal</h6>
+          <div className="flex flex-col">
           <a className="link link-hover">Terms of use</a>
           <a className="link link-hover">Privacy policy</a>
           <a className="link link-hover">Cookie policy</a>
+          </div>
         </nav>
-        <nav>
+        <nav className="text-center md:text-left lg:text-left">
           <h6 className="footer-title">Social</h6>
           <div className="grid grid-flow-col gap-4">
             <a>
