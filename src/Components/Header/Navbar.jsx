@@ -76,8 +76,8 @@ const Navbar = () => {
                   borderRadius: "15px",
                 }}
               >
-                <p className="text-xs mb-1">{user?.displayName}</p>
-                <button onClick={userLogOut} className="btn btn-xs bg-red-600 border-none">Logout</button>
+                <button onClick={userLogOut} className="btn btn-xs bg-red-600 border-none mb-1">Logout</button>
+                <p className="text-xs ">{user?.displayName}</p>
               </Tooltip>
             </div>
         </div>
