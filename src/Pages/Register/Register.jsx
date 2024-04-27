@@ -1,39 +1,153 @@
-import { Link } from "react-router-dom";
+import { useContext, useRef, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../AuthContextProvider/ContextProvider";
+import { useForm } from "react-hook-form";
+import { IoMdEye, IoMdEyeOff } from "react-icons/io";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import formImage1 from "../../assets/images/draw1.jpg";
+import Swal from "sweetalert2";
 
 const Register = () => {
-    return (
-        <div>
-            <div className="flex h-screen items-center justify-center bg-[#8EA7E9]/20 p-6 md:p-0">
-            <div className="flex h-full w-full overflow-hidden rounded-xl shadow-md  md:h-[90%] md:w-[80%] lg:h-[80%]">
-                {/* register design side  */}
-                <div className=" hidden h-full items-center justify-center flex-col bg-[#8EA7E9] md:flex md:w-[60%] lg:w-[40%]">
-                    
-                    {/* <div className="absolute -top-2 left-[20%] h-16 w-16 rounded-full bg-gradient-to-br  from-white via-[#9eb6f8] to-[#6585dd]"></div>
-                    <div className="absolute bottom-[18%] left-[20%] h-20 w-20 rounded-full bg-gradient-to-br  from-white via-[#9eb6f8] to-[#6585dd]"></div>
-                    <div className="absolute -right-7 top-[50%] h-14 w-14 -translate-y-1/2 rounded-full bg-gradient-to-br from-white via-[#9eb6f8] to-[#6585dd] transition-all"></div>
-                    <div className="absolute left-[50%] top-[22%] h-24 w-24 -translate-x-1/2 rounded-full  bg-gradient-to-br from-white via-[#9eb6f8] to-[#6585dd]"></div> */}
-                    <div className="space-y-2 text-center">
-                        <h2 className="text-3xl font-medium text-white/80 ">Welcome To Tropical Tours</h2>
-                        <p className="animate-pulse text-md text-black/60">Please Register an Account</p>
-                    </div>
-                </div>
-                {/* input side  */}
-                <div className="flex w-full flex-col justify-center bg-white py-10 lg:w-[60%]">
-                    <h2 className="pb-8 text-center text-3xl font-bold text-[#8EA7E9]">Register Your Account Here</h2>
-                    <form className="flex  w-full flex-col items-center justify-center gap-4">
-                        <input className="w-[80%] rounded-lg border border-[#8EA7E9] px-6 py-2 focus:outline-none focus:ring-2 focus:ring-[#8EA7E9]/50 md:w-[60%]" type="text" placeholder="Your Name" name="name"/>
-                        <input className="w-[80%] rounded-lg border border-[#8EA7E9] px-6 py-2 focus:outline-none focus:ring-2 focus:ring-[#8EA7E9]/50 md:w-[60%]" type="email" placeholder="Your Email" name="email"/>
-                        <input className="w-[80%] rounded-lg border border-[#8EA7E9] px-6 py-2 focus:outline-none focus:ring-2 focus:ring-[#8EA7E9]/50 md:w-[60%]" type="url" placeholder="Your Photo URL" name="photo"/>
-                        <input className="w-[80%] rounded-lg border border-[#8EA7E9] px-6 py-2 focus:outline-none focus:ring-2 focus:ring-[#8EA7E9]/50 md:w-[60%]" type="password" placeholder="Your Password" name="password"/>
-                        <p className="text-[14px] text-gray-400">Already have an account ? <Link to="/login" className="text-[#8EA7E9] ">Please Login</Link></p>
-                        <input className="w-[80%] rounded-lg bg-[#8EA7E9] px-6 py-2 font-medium text-white md:w-[60%]" type="submit" value="Register" />
-                    </form>
-                    {/* divider  */}
-                </div>
+  const { createUser, updateUserProfile,userLogOut } = useContext(AuthContext);
+  const [showPassword, setShowPassword] = useState(false);
+  const toastId=useRef(null)
+  const navigate=useNavigate();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => {
+    const {name,email,photo,password}=data;
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).+$/;
+    if (
+        (password.length < 6 || !passwordRegex.test(password)) &&
+        !toast.isActive(toastId.current)
+      ) {
+        return (toastId.current = toast.error(
+          "Password must be at least 6 characters long and contain at least one uppercase and one lowercase letter"
+        ));
+      }
+      createUser(email,password)
+      .then(userCredential=>{
+        updateUserProfile(name,photo)
+        .then(()=>{
+            console.log("User update successfully");
+        })
+        if(userCredential){
+            Swal.fire({
+                title: "Registration Successful",
+                text: "Now please login to your account",
+                icon: "success",
+                confirmButtonColor: "#3085d6",
+                confirmButtonText: "Ok"
+              })
+              .then((result)=>{
+                if(result.isConfirmed){
+                    userLogOut();
+                    navigate("/login")
+                }
+              })
+            // alert("Success")
+        }
+      })
+  };
+  const handlePasswordShowToggler = () => {
+    setShowPassword(!showPassword);
+  };
+  return (
+    <div className="p-14 ">
+      <div className="max-w-7xl mx-auto flex flex-col  lg:flex-row gap-4 border rounded-lg shadow-xl p-4">
+        <div className=" lg:w-1/2 flex justify-center items-center">
+          <img className="w-full" src={formImage1} alt="" />
+        </div>
+        <div className=" lg:w-1/2 p-4">
+          <div className="text-center mb-4">
+            <h1 className="text-4xl text-[#374151] font-bold font-rancho">
+              Create an account here
+            </h1>
+          </div>
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+            <div>
+              <input
+                className="bg-slate-100 w-full p-2 text-[#1B1A1A99] rounded-md font-raleway"
+                type="text"
+                name="name"
+                placeholder="Your name"
+                {...register("name", { required: true })}
+              />
+              {errors.name && (
+                    <span className="text-red-500">This field is required</span>
+                  )}
             </div>
+            <div>
+              <input
+                className="bg-slate-100 w-full p-2 text-[#1B1A1A99] rounded-md font-raleway"
+                type="email"
+                name="email"
+                placeholder="Your email"
+                {...register("email", { required: true })}
+              />
+              {errors.email && (
+                    <span className="text-red-500">This field is required</span>
+                  )}
+            </div>
+            <div>
+              <input
+                className="bg-slate-100 w-full p-2 text-[#1B1A1A99] rounded-md font-raleway"
+                type="url"
+                name="photo"
+                placeholder="Your photo URL"
+                {...register("photo", { required: true })}
+              />
+              {errors.photo && (
+                    <span className="text-red-500">This field is required</span>
+                  )}
+            </div>
+            <div className="relative">
+              <input
+                className="bg-slate-100 w-full p-2 text-[#1B1A1A99] rounded-md font-raleway"
+                type={showPassword ? "text" : "password"}
+                name="pasword"
+                placeholder="Your password"
+                {...register("password", { required: true })}
+              />
+              {errors.password && (
+                    <span className="text-red-500">This field is required</span>
+                  )}
+              <span
+                onClick={handlePasswordShowToggler}
+                className="absolute right-2 top-3"
+              >
+                {showPassword ? (
+                  <IoMdEyeOff className="text-gray-400 text-xl"></IoMdEyeOff>
+                ) : (
+                  <IoMdEye className="text-gray-400 text-xl "></IoMdEye>
+                )}
+              </span>
+            </div>
+            <div>
+              <input
+                className="bg-slate-100 w-full p-2 text-[#1B1A1A99] rounded-md hover:bg-blue-300 transition-all duration-500 hover:scale-90 font-raleway"
+                type="submit"
+                value="Create Account"
+              />
+            </div>
+            <div>
+              <p className="font-raleway text-[#374151] font-medium ">
+                Already have an account?Please{" "}
+                <span className="text-xl text-blue-600 font-rancho font-medium ">
+                  <Link to="/login">Login</Link>
+                </span>
+              </p>
+            </div>
+          </form>
         </div>
-        </div>
-    );
+      </div>
+      <ToastContainer position="top-center" theme="colored" autoClose={4000}></ToastContainer>
+    </div>
+  );
 };
 
 export default Register;
