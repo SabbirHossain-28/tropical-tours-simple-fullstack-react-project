@@ -1,8 +1,12 @@
 import { NavLink } from "react-router-dom";
 import Lottie from "lottie-react";
 import lottie1 from "../../../public/Lottie/touranimation.json";
+import { useContext } from "react";
+import { AuthContext } from "../../AuthContextProvider/ContextProvider";
 
 const Navbar = () => {
+  const {user}=useContext(AuthContext);
+  console.log(user);
   const navlinks = (
     <>
       <li>

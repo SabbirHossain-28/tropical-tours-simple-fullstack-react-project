@@ -3,55 +3,56 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthContextProvider/ContextProvider";
 import { useForm } from "react-hook-form";
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import formImage1 from "../../assets/images/draw1.jpg";
 import Swal from "sweetalert2";
 
 const Register = () => {
-  const { createUser, updateUserProfile,userLogOut } = useContext(AuthContext);
+  const { createUser, updateUserProfile, userLogOut } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
-  const toastId=useRef(null)
-  const navigate=useNavigate();
+  const toastId = useRef(null);
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    const {name,email,photo,password}=data;
+    const { name, email, photo, password } = data;
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).+$/;
     if (
-        (password.length < 6 || !passwordRegex.test(password)) &&
-        !toast.isActive(toastId.current)
-      ) {
-        return (toastId.current = toast.error(
-          "Password must be at least 6 characters long and contain at least one uppercase and one lowercase letter"
-        ));
+      (password.length < 6 || !passwordRegex.test(password)) &&
+      !toast.isActive(toastId.current)
+    ) {
+      return (toastId.current = toast.error(
+        "Password must be at least 6 characters long and contain at least one uppercase and one lowercase letter"
+      ));
+    }
+    createUser(email, password).then((userCredential) => {
+      updateUserProfile(name, photo).then(() => {
+        console.log("User update successfully");
+      });
+      if (userCredential) {
+        Swal.fire({
+          title: "Registration Successful",
+          text: "Now please login to your account",
+          icon: "success",
+          confirmButtonColor: "#3085d6",
+          confirmButtonText: "Ok",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            userLogOut();
+            navigate("/login");
+          }
+        });
       }
-      createUser(email,password)
-      .then(userCredential=>{
-        updateUserProfile(name,photo)
-        .then(()=>{
-            console.log("User update successfully");
-        })
-        if(userCredential){
-            Swal.fire({
-                title: "Registration Successful",
-                text: "Now please login to your account",
-                icon: "success",
-                confirmButtonColor: "#3085d6",
-                confirmButtonText: "Ok"
-              })
-              .then((result)=>{
-                if(result.isConfirmed){
-                    userLogOut();
-                    navigate("/login")
-                }
-              })
-            // alert("Success")
+    })
+    .catch(error=>{
+        if(error && !toast.isActive(toastId.current)){
+            toastId.current=toast.error("User is already registered");
         }
-      })
+    })
   };
   const handlePasswordShowToggler = () => {
     setShowPassword(!showPassword);
@@ -78,8 +79,8 @@ const Register = () => {
                 {...register("name", { required: true })}
               />
               {errors.name && (
-                    <span className="text-red-500">This field is required</span>
-                  )}
+                <span className="text-red-500">This field is required</span>
+              )}
             </div>
             <div>
               <input
@@ -90,8 +91,8 @@ const Register = () => {
                 {...register("email", { required: true })}
               />
               {errors.email && (
-                    <span className="text-red-500">This field is required</span>
-                  )}
+                <span className="text-red-500">This field is required</span>
+              )}
             </div>
             <div>
               <input
@@ -102,8 +103,8 @@ const Register = () => {
                 {...register("photo", { required: true })}
               />
               {errors.photo && (
-                    <span className="text-red-500">This field is required</span>
-                  )}
+                <span className="text-red-500">This field is required</span>
+              )}
             </div>
             <div className="relative">
               <input
@@ -114,8 +115,8 @@ const Register = () => {
                 {...register("password", { required: true })}
               />
               {errors.password && (
-                    <span className="text-red-500">This field is required</span>
-                  )}
+                <span className="text-red-500">This field is required</span>
+              )}
               <span
                 onClick={handlePasswordShowToggler}
                 className="absolute right-2 top-3"
@@ -145,7 +146,11 @@ const Register = () => {
           </form>
         </div>
       </div>
-      <ToastContainer position="top-center" theme="colored" autoClose={4000}></ToastContainer>
+      <ToastContainer
+        position="top-center"
+        theme="colored"
+        autoClose={4000}
+      ></ToastContainer>
     </div>
   );
 };
