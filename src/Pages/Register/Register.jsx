@@ -69,7 +69,7 @@ const Register = () => {
               Create an account here
             </h1>
           </div>
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 mb-8">
             <div>
               <input
                 className="bg-slate-100 w-full p-2 text-[#1B1A1A99] rounded-md font-raleway"
@@ -135,6 +135,7 @@ const Register = () => {
                 value="Create Account"
               />
             </div>
+          </form>
             <div>
               <p className="font-raleway text-[#374151] font-medium ">
                 Already have an account?Please{" "}
@@ -143,7 +144,6 @@ const Register = () => {
                 </span>
               </p>
             </div>
-          </form>
         </div>
       </div>
       <ToastContainer

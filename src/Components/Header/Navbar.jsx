@@ -3,9 +3,12 @@ import Lottie from "lottie-react";
 import lottie1 from "../../../public/Lottie/touranimation.json";
 import { useContext } from "react";
 import { AuthContext } from "../../AuthContextProvider/ContextProvider";
+import { IoPersonCircleOutline } from "react-icons/io5";
+import { Tooltip } from "react-tooltip";
+import "react-tooltip/dist/react-tooltip.css";
 
 const Navbar = () => {
-  const {user}=useContext(AuthContext);
+  const { user,userLogOut } = useContext(AuthContext);
   console.log(user);
   const navlinks = (
     <>
@@ -42,13 +45,13 @@ const Navbar = () => {
               {navlinks}
             </ul>
           </div>
-          <Lottie style={{width:"100px"}} animationData={lottie1} />
+          <Lottie style={{ width: "100px" }} animationData={lottie1} />
           <a className="text-4xl font-bold font-rancho">Tropical Tours</a>
         </div>
         <div className="navbar-center hidden lg:flex font-raleway">
           <ul className="menu menu-horizontal px-1">{navlinks}</ul>
         </div>
-        <div className="navbar-end flex gap-2">
+        <div className="navbar-end flex gap-2 mr-8">
           <div className="flex gap-2 font-raleway">
             <button className="btn">
               <NavLink to="/login">Login</NavLink>
@@ -57,11 +60,32 @@ const Navbar = () => {
               <NavLink to="/register">Register</NavLink>
             </button>
           </div>
-          <div className="avatar online">
-            <div className="w-14 rounded-full">
-              <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+          {user ? (
+            <div className="avatar online">
+              <div id="btn-tooltip" className="w-14 rounded-full">
+                <img src={user?.photoURL} />
+              </div>
+              <Tooltip
+                anchorSelect="#btn-tooltip"
+                clickable
+                style={{
+                  width: "130px",
+                  height: "50px",
+                  backgroundColor: "#000000a4",
+                  borderRadius: "15px",
+                }}
+              >
+                <p className="text-xs">{user?.displayName}</p>
+                <button onClick={userLogOut} className="btn btn-xs">Logout</button>
+              </Tooltip>
             </div>
-          </div>
+          ) : (
+            <div className="avatar offline">
+              <div className="w-14 rounded-full">
+                <IoPersonCircleOutline className="text-6xl"></IoPersonCircleOutline>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>

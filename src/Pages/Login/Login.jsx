@@ -100,8 +100,8 @@ const Login = () => {
         <div className="w-1/2">
           <Lottie style={{ width: "100%" }} animationData={lottie2} />
         </div>
-        <div className="w-1/2 p-4">
-          <div className="text-center mb-4">
+        <div className="w-1/2 p-4 flex flex-col justify-center">
+          <div className="text-center mb-8">
             <h1 className="text-4xl text-[#374151] font-bold font-rancho">
               Login here
             </h1>
