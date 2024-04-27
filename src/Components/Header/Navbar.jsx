@@ -60,32 +60,26 @@ const Navbar = () => {
               <NavLink to="/register">Register</NavLink>
             </button>
           </div>
-          {user ? (
-            <div className="avatar online">
+          <div className={`avatar ${user?"online":"offline"} online`}>
               <div id="btn-tooltip" className="w-14 rounded-full">
-                <img src={user?.photoURL} />
+                {
+                  user?<img src={user?.photoURL} />:<IoPersonCircleOutline className="text-6xl"></IoPersonCircleOutline>
+                }
               </div>
               <Tooltip
                 anchorSelect="#btn-tooltip"
                 clickable
                 style={{
                   width: "130px",
-                  height: "50px",
+                  height: "60px",
                   backgroundColor: "#000000a4",
                   borderRadius: "15px",
                 }}
               >
-                <p className="text-xs">{user?.displayName}</p>
-                <button onClick={userLogOut} className="btn btn-xs">Logout</button>
+                <p className="text-xs mb-1">{user?.displayName}</p>
+                <button onClick={userLogOut} className="btn btn-xs bg-red-600 border-none">Logout</button>
               </Tooltip>
             </div>
-          ) : (
-            <div className="avatar offline">
-              <div className="w-14 rounded-full">
-                <IoPersonCircleOutline className="text-6xl"></IoPersonCircleOutline>
-              </div>
-            </div>
-          )}
         </div>
       </div>
     </div>
