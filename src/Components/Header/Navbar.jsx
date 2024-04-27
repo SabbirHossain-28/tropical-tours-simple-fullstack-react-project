@@ -1,4 +1,6 @@
 import { NavLink } from "react-router-dom";
+import Lottie from "lottie-react";
+import lottie1 from "../../../public/Lottie/touranimation.json";
 
 const Navbar = () => {
   const navlinks = (
@@ -36,6 +38,7 @@ const Navbar = () => {
               {navlinks}
             </ul>
           </div>
+          <Lottie style={{width:"100px"}} animationData={lottie1} />
           <a className="text-4xl font-bold font-rancho">Tropical Tours</a>
         </div>
         <div className="navbar-center hidden lg:flex font-raleway">
