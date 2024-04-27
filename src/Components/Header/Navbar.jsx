@@ -47,10 +47,10 @@ const Navbar = () => {
         <div className="navbar-end flex gap-2">
           <div className="flex gap-2 font-raleway">
             <button className="btn">
-              <NavLink to="login">Login</NavLink>
+              <NavLink to="/login">Login</NavLink>
             </button>
             <button className="btn">
-              <NavLink to="register">Register</NavLink>
+              <NavLink to="/register">Register</NavLink>
             </button>
           </div>
           <div className="avatar online">
