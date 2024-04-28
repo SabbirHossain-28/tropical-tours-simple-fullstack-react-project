@@ -4,9 +4,9 @@ import TouristSpotCard from "./TouristSpotCard";
 const TouristSpots = () => {
     const loadedSpotsData=useLoaderData()
     return (
-        <div className="max-w-7xl mx-auto bg-[#f3f9fc] p-6">
-            <div className="text-center">
-                <h2 className="text-4xl font-rancho text-[#374151]">Explore Popular Tourist Destinations</h2>
+        <div className="max-w-7xl mx-auto bg-[#f3f9fc] p-8 mb-12">
+            <div className="text-center mb-6">
+                <h2 className="text-xl md:text-2xl lg:text-5xl font-bold font-rancho text-[#374151] mb-6">Explore Some Popular Tourist Destinations</h2>
                 <p className="font-raleway text-[#1B1A1AB3] text-base">Discover the gems of travel with our curated collection of popular tourist spots. From vibrant cityscapes to serene natural wonders, embark on a journey of exploration and adventure. Immerse yourself in captivating cultures, indulge in culinary delights, and create unforgettable memories at these iconic destinations. Start your adventure today and unlock the wonders of the world with us.</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
