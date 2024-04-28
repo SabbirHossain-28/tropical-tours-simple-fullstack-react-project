@@ -8,18 +8,19 @@ import { Tooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
 
 const Navbar = () => {
-  const { user,userLogOut } = useContext(AuthContext);
+  const { user, userLogOut } = useContext(AuthContext);
   console.log(user);
   const navlinks = (
     <>
       <li>
         <NavLink to="/">Home</NavLink>
       </li>
-      {
-        user && <li>
-          <NavLink to="/addToristSpot">Add Tourists Spot</NavLink>
-        </li>
-      }
+      <li>
+        <NavLink to="/allSpots">All Tourist Spots</NavLink>
+      </li>
+      <li>
+        <NavLink to="/addToristSpot">Add Tourists Spot</NavLink>
+      </li>
     </>
   );
   return (
@@ -65,26 +66,33 @@ const Navbar = () => {
               <NavLink to="/register">Register</NavLink>
             </button>
           </div>
-          <div className={`avatar ${user?"online":"offline"} online`}>
-              <div id="btn-tooltip" className="w-14 rounded-full">
-                {
-                  user?<img src={user?.photoURL} />:<IoPersonCircleOutline className="text-6xl"></IoPersonCircleOutline>
-                }
-              </div>
-              <Tooltip
-                anchorSelect="#btn-tooltip"
-                clickable
-                style={{
-                  width: "130px",
-                  height: "60px",
-                  backgroundColor: "#000000a4",
-                  borderRadius: "15px",
-                }}
-              >
-                <button onClick={userLogOut} className="btn btn-xs bg-red-600 border-none mb-1">Logout</button>
-                <p className="text-xs ">{user?.displayName}</p>
-              </Tooltip>
+          <div className={`avatar ${user ? "online" : "offline"} online`}>
+            <div id="btn-tooltip" className="w-14 rounded-full">
+              {user ? (
+                <img src={user?.photoURL} />
+              ) : (
+                <IoPersonCircleOutline className="text-6xl"></IoPersonCircleOutline>
+              )}
             </div>
+            <Tooltip
+              anchorSelect="#btn-tooltip"
+              clickable
+              style={{
+                width: "130px",
+                height: "60px",
+                backgroundColor: "#000000a4",
+                borderRadius: "15px",
+              }}
+            >
+              <button
+                onClick={userLogOut}
+                className="btn btn-xs bg-red-600 border-none mb-1"
+              >
+                Logout
+              </button>
+              <p className="text-xs ">{user?.displayName}</p>
+            </Tooltip>
+          </div>
         </div>
       </div>
     </div>

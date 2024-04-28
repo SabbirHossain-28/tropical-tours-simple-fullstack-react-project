@@ -1,7 +1,8 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const TouristSpotCard = ({ spotData }) => {
-    const {photo,spot,location,season}=spotData
+    const {_id,photo,spot,location,season}=spotData
 
   return (
     <div>
@@ -22,9 +23,10 @@ const TouristSpotCard = ({ spotData }) => {
           
         </div>
         <div className="flex gap-4">
+          <Link to={`/spotDetails/${_id}`}>
           <button className="rounded-lg bg-slate-800 px-6 py-2 text-[12px] font-semibold text-white duration-300 hover:bg-slate-950 sm:text-sm md:text-base ">
             View Details
-          </button>
+          </button></Link>
         </div>
       </div>
     </div>

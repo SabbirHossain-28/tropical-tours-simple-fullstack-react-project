@@ -5,6 +5,8 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import AddTouristSpot from "../Pages/AddTouristSpot/AddTouristSpot";
 import PrivetRoute from "./PrivetRoute";
+import AllSpots from "../Pages/AllSpots/AllSpots";
+import SpotDetails from "../Pages/SpotDetails/SpotDetails";
 
 export const router = createBrowserRouter([
   {
@@ -32,6 +34,16 @@ export const router = createBrowserRouter([
           </PrivetRoute>
         ),
       },
+      {
+        path:"/allSpots",
+        element:<AllSpots></AllSpots>,
+        loader: ()=>fetch("http://localhost:5000/spots"),
+      },
+      {
+        path:"/spotDetails/:id",
+        element:<PrivetRoute><SpotDetails></SpotDetails></PrivetRoute>,
+        loader:({params})=>fetch(`http://localhost:5000/spots/${params.id}`)
+      }
     ],
   },
 ]);
