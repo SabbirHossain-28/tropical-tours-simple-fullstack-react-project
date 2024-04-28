@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import Lottie from "lottie-react";
 import lottie1 from "../../../public/Lottie/touranimation.json";
 import { useContext } from "react";
@@ -6,9 +6,11 @@ import { AuthContext } from "../../AuthContextProvider/ContextProvider";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import { Tooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
   const { user, userLogOut } = useContext(AuthContext);
+  const navigate=useNavigate()
   console.log(user);
   const navlinks = (
     <>
@@ -23,6 +25,21 @@ const Navbar = () => {
       </li>
     </>
   );
+  const handleUserLogOut=()=>{
+    userLogOut()
+    .then(()=>{
+      Swal.fire({
+        title: "You are successfully logout",
+        text: "You won't be able to revert this!",
+        icon: "success",
+        confirmButtonColor: "#3085d6",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/")
+        }
+      });
+    })
+  }
   return (
     <div className="bg-slate-200">
       <div className="navbar max-w-7xl mx-auto">
@@ -85,7 +102,7 @@ const Navbar = () => {
               }}
             >
               <button
-                onClick={userLogOut}
+                onClick={handleUserLogOut}
                 className="btn btn-xs bg-red-600 border-none mb-1"
               >
                 Logout

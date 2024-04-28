@@ -16,7 +16,7 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: ()=>fetch("http://localhost:5000/spots"),
+        loader: () => fetch("http://localhost:5000/spots"),
       },
       {
         path: "/login",
@@ -35,15 +35,20 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path:"/allSpots",
-        element:<AllSpots></AllSpots>,
-        loader: ()=>fetch("http://localhost:5000/spots"),
+        path: "/allSpots",
+        element: <AllSpots></AllSpots>,
+        loader: () => fetch("http://localhost:5000/spots"),
       },
       {
-        path:"/spotDetails/:id",
-        element:<PrivetRoute><SpotDetails></SpotDetails></PrivetRoute>,
-        loader:({params})=>fetch(`http://localhost:5000/spots/${params.id}`)
-      }
+        path: "/spotDetails/:id",
+        element: (
+          <PrivetRoute>
+            <SpotDetails></SpotDetails>
+          </PrivetRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/spots/${params.id}`),
+      },
     ],
   },
 ]);

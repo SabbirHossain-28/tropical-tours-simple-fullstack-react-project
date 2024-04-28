@@ -1,7 +1,7 @@
 import { useContext, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Swal from "sweetalert2";
@@ -14,6 +14,8 @@ import { FaGithub } from "react-icons/fa";
 const Login = () => {
   const { userLogin, signInWithGoogle,signInWithGitHub } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
+  const navigate=useNavigate();
+  const location=useLocation();
   const {
     register,
     handleSubmit,
@@ -44,6 +46,11 @@ const Login = () => {
                 confirmButtonColor: "#3085d6",
                 confirmButtonText: "Ok",
               })
+              .then(result=>{
+                if(result.isConfirmed){
+                  navigate(location?.state? location.state:"/")
+                }
+              })
         }
     })
     .catch(error=>{
@@ -63,6 +70,11 @@ const Login = () => {
                 confirmButtonColor: "#3085d6",
                 confirmButtonText: "Ok",
               })
+              .then(result=>{
+                if(result.isConfirmed){
+                  navigate(location?.state? location.state:"/")
+                }
+              })
         }
     })
     .catch(error=>{
@@ -81,6 +93,11 @@ const Login = () => {
                 icon: "success",
                 confirmButtonColor: "#3085d6",
                 confirmButtonText: "Ok",
+              })
+              .then(result=>{
+                if(result.isConfirmed){
+                  navigate(location?.state? location.state:"/")
+                }
               })
         }
     })
