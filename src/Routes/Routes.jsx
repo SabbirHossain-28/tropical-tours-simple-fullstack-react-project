@@ -8,11 +8,13 @@ import PrivetRoute from "./PrivetRoute";
 import AllSpots from "../Pages/AllSpots/AllSpots";
 import SpotDetails from "../Pages/SpotDetails/SpotDetails";
 import MyAddedSpotList from "../Pages/MyAddedSpotList/MyAddedSpotList";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement:<ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
