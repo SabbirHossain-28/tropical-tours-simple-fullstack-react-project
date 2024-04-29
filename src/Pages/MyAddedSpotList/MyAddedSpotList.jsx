@@ -71,7 +71,7 @@ const MyAddedSpotList = () => {
                   <td>{listData.location}</td>
                   <td>{listData.time}</td>
                   <td>
-                    <Link>
+                    <Link to={`/updateSpotData/${listData._id}`}>
                       <button className="btn btn-xs">Update</button>
                     </Link>
                   </td>

@@ -1,37 +1,51 @@
 import { FaArrowLeft } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 
-const AddTouristSpot = () => {
+const UpdateSpotData = () => {
+  const loadedSpotDataForUpdate = useLoaderData();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
-    reset
+    // reset
   } = useForm();
-
+  const {
+    _id,
+    photo,
+    spot,
+    time,
+    visitors,
+    cost,
+    location,
+    season,
+    description,
+    country_name,
+  } = loadedSpotDataForUpdate;
   const onSubmit = (data) => {
     console.log(data);
-    fetch("http://localhost:5000/spots",{
-        method:"POST",
-        headers:{"Content-type":"application/json"},
-        body:JSON.stringify(data)
-    })
-    .then(res => res.json())
-    .then(data =>{
-        if(data.insertedId){
-            Swal.fire({
-                position: "top",
-                icon: "success",
-                title: "Your spot data added successfully",
-                showConfirmButton: false,
-                timer: 1500
-              });
-              reset();
-        }
-    })
 
+    fetch(`http://localhost:5000/spots/${_id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount) {
+          Swal.fire({
+            title: "Successfully Updated!",
+            text: "Your tourist spot data has been updated.",
+            icon: "success",
+          });
+          navigate("/allSpots");
+        }
+      });
   };
   return (
     <div>
@@ -39,59 +53,19 @@ const AddTouristSpot = () => {
         <div className="bg-[#f3f9fc] p-10 rounded-md">
           <div className="text-center mb-4">
             <h2 className="font-rancho text-[#374151] text-5xl mb-4">
-              Add Your Favorite Tourists Spot
+              Update Your Tourists Spot Data
             </h2>
             <p className="font-raleway text-[#1B1A1AB3] text-lg">
-              This is where you can share your favorite tourist spots with the
-              world. Simply fill out the form below with all the necessary
-              information about your chosen destination.Tell us about the spot
-              unique features, historical significance, and any insider tips you
-              have for fellow travelers. Do not forget to upload stunning photos
-              to showcase the beauty of the location.
+              This is where you can change/update your favorite tourist spots
+              with the world. Simply change/update the form input field below
+              which you want to update, with all the necessary information about
+              your chosen destination.Tell us about the spot unique features,
+              historical significance, and any insider tips you have for fellow
+              travelers.
             </p>
           </div>
           <div>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-              <div className="flex gap-4">
-                <div className="w-1/2">
-                  <label
-                    className="block font-raleway text-xl text-[#1B1A1ACC]"
-                    htmlFor="email"
-                  >
-                    Your email
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    placeholder="Enter your email address"
-                    className="font-raleway text-[#1B1A1A99] p-2 w-full"
-                    {...register("email", { required: true })}
-                  />
-                  {errors.email && (
-                    <span className="text-red-500">This field is required</span>
-                  )}
-                </div>
-                <div className="w-1/2">
-                  <label
-                    className="block font-raleway text-xl text-[#1B1A1ACC]"
-                    htmlFor="name"
-                  >
-                    Your name
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    id="name"
-                    placeholder="Enter Your full-name"
-                    className="font-raleway text-[#1B1A1A99] p-2 w-full"
-                    {...register("name", { required: true })}
-                  />
-                  {errors.name && (
-                    <span className="text-red-500">This field is required</span>
-                  )}
-                </div>
-              </div>
               <div className="flex gap-4">
                 <div className="w-1/2">
                   <label
@@ -106,6 +80,7 @@ const AddTouristSpot = () => {
                     id="spot"
                     placeholder="Enter spot name"
                     className="font-raleway text-[#1B1A1A99] p-2 w-full"
+                    defaultValue={spot}
                     {...register("spot", { required: true })}
                   />
                   {errors.spot && (
@@ -123,6 +98,7 @@ const AddTouristSpot = () => {
                     className="w-full outline-none p-2"
                     name="country_name"
                     id="country_name"
+                    defaultValue={country_name}
                     {...register("country_name", { required: true })}
                   >
                     <option value="">Select Country name</option>
@@ -152,6 +128,7 @@ const AddTouristSpot = () => {
                     id="location"
                     placeholder="Enter spot location"
                     className="font-raleway text-[#1B1A1A99] p-2 w-full"
+                    defaultValue={location}
                     {...register("location", { required: true })}
                   />
                   {errors.location && (
@@ -171,6 +148,7 @@ const AddTouristSpot = () => {
                     id="cost"
                     placeholder="Enter average cost"
                     className="font-raleway text-[#1B1A1A99] p-2 w-full"
+                    defaultValue={cost}
                     {...register("cost", { required: true })}
                   />
                   {errors.cost && (
@@ -192,6 +170,7 @@ const AddTouristSpot = () => {
                     id="season"
                     placeholder="Enter spot seasonality"
                     className="font-raleway text-[#1B1A1A99] p-2 w-full"
+                    defaultValue={season}
                     {...register("season", { required: true })}
                   />
                   {errors.season && (
@@ -211,6 +190,7 @@ const AddTouristSpot = () => {
                     id="time"
                     placeholder="Enter travel time"
                     className="font-raleway text-[#1B1A1A99] p-2 w-full"
+                    defaultValue={time}
                     {...register("time", { required: true })}
                   />
                   {errors.time && (
@@ -232,6 +212,7 @@ const AddTouristSpot = () => {
                     id="visitors"
                     placeholder="Enter visitors quantity "
                     className="font-raleway text-[#1B1A1A99] p-2 w-full"
+                    defaultValue={visitors}
                     {...register("visitors", { required: true })}
                   />
                   {errors.visitors && (
@@ -251,6 +232,7 @@ const AddTouristSpot = () => {
                     id="description"
                     placeholder="Enter spot description"
                     className="font-raleway text-[#1B1A1A99] p-2 w-full"
+                    defaultValue={description}
                     {...register("description", { required: true })}
                   />
                   {errors.description && (
@@ -271,6 +253,7 @@ const AddTouristSpot = () => {
                   id="Photo"
                   placeholder="Enter photo URL"
                   className="font-raleway text-[#1B1A1A99] p-2 w-full"
+                  defaultValue={photo}
                   {...register("photo", { required: true })}
                 />
                 {errors.photo && (
@@ -282,7 +265,7 @@ const AddTouristSpot = () => {
                   <input
                     className="font-raleway font-semibold text-2xl text-white bg-[#2f9fb8] rounded-sm p-2"
                     type="submit"
-                    value="Add Spot"
+                    value="Update"
                   />
                 </div>
                 <div className="">
@@ -304,4 +287,4 @@ const AddTouristSpot = () => {
   );
 };
 
-export default AddTouristSpot;
+export default UpdateSpotData;

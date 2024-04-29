@@ -9,6 +9,7 @@ import AllSpots from "../Pages/AllSpots/AllSpots";
 import SpotDetails from "../Pages/SpotDetails/SpotDetails";
 import MyAddedSpotList from "../Pages/MyAddedSpotList/MyAddedSpotList";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import UpdateSpotData from "../Pages/UpdateSpotData/UpdateSpotData";
 
 export const router = createBrowserRouter([
   {
@@ -61,6 +62,11 @@ export const router = createBrowserRouter([
         ),
         loader:()=>fetch("http://localhost:5000/spots"),
       },
+      {
+        path:"/updateSpotData/:id",
+        element:<PrivetRoute><UpdateSpotData></UpdateSpotData></PrivetRoute>,
+        loader:({params})=>fetch(`http://localhost:5000/spots/${params.id}`)
+      }
     ],
   },
 ]);
