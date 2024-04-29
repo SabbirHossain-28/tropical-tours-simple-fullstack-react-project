@@ -10,6 +10,7 @@ import SpotDetails from "../Pages/SpotDetails/SpotDetails";
 import MyAddedSpotList from "../Pages/MyAddedSpotList/MyAddedSpotList";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import UpdateSpotData from "../Pages/UpdateSpotData/UpdateSpotData";
+import CountrySpots from "../Pages/CountrySpots/CountrySpots";
 
 export const router = createBrowserRouter([
   {
@@ -66,6 +67,10 @@ export const router = createBrowserRouter([
         path:"/updateSpotData/:id",
         element:<PrivetRoute><UpdateSpotData></UpdateSpotData></PrivetRoute>,
         loader:({params})=>fetch(`http://localhost:5000/spots/${params.id}`)
+      },
+      {
+        path:"/countrySpots/:country_name",
+        element:<CountrySpots></CountrySpots>,
       }
     ],
   },

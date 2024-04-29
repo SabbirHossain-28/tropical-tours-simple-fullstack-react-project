@@ -1,4 +1,5 @@
 import { Banner } from "../../Components/Banner/Baneer";
+import Countries from "../../Components/Countries/Countries";
 import TouristSpots from "../../Components/TouristSpots/TouristSpots";
 
 const Home = () => {
@@ -6,6 +7,7 @@ const Home = () => {
         <div>
             <Banner></Banner>
             <TouristSpots></TouristSpots>
+            <Countries></Countries>
         </div>
     );
 };
