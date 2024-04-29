@@ -23,6 +23,9 @@ const Navbar = () => {
       <li>
         <NavLink to="/addToristSpot">Add Tourists Spot</NavLink>
       </li>
+      <li>
+        <NavLink to="/myAddedSpotList">My Spot List</NavLink>
+      </li>
     </>
   );
   const handleUserLogOut=()=>{
