@@ -4,7 +4,7 @@ import TouristSpots from "../../Components/TouristSpots/TouristSpots";
 
 const Home = () => {
     return (
-        <div>
+        <div className="">
             <Banner></Banner>
             <TouristSpots></TouristSpots>
             <Countries></Countries>

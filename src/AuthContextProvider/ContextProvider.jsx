@@ -59,6 +59,7 @@ const signInWithGitHub=()=>{
   const authInfo = {
     user,
     loading,
+    setLoading,
     createUser,
     updateUserProfile,
     userLogOut,
