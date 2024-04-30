@@ -16,12 +16,13 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
-    errorElement:<ErrorPage></ErrorPage>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("https://tropical-tours-web-server.vercel.app/spots"),
+        loader: () =>
+          fetch("https://tropical-tours-web-server.vercel.app/spots"),
       },
       {
         path: "/login",
@@ -42,7 +43,8 @@ export const router = createBrowserRouter([
       {
         path: "/allSpots",
         element: <AllSpots></AllSpots>,
-        loader: () => fetch("https://tropical-tours-web-server.vercel.app/spots"),
+        loader: () =>
+          fetch("https://tropical-tours-web-server.vercel.app/spots"),
       },
       {
         path: "/spotDetails/:id",
@@ -52,7 +54,9 @@ export const router = createBrowserRouter([
           </PrivetRoute>
         ),
         loader: ({ params }) =>
-          fetch(`https://tropical-tours-web-server.vercel.app/spots/${params.id}`),
+          fetch(
+            `https://tropical-tours-web-server.vercel.app/spots/${params.id}`
+          ),
       },
       {
         path: "/myAddedSpotList",
@@ -61,17 +65,25 @@ export const router = createBrowserRouter([
             <MyAddedSpotList></MyAddedSpotList>
           </PrivetRoute>
         ),
-        loader:()=>fetch("https://tropical-tours-web-server.vercel.app/spots"),
+        loader: () =>
+          fetch("https://tropical-tours-web-server.vercel.app/spots"),
       },
       {
-        path:"/updateSpotData/:id",
-        element:<PrivetRoute><UpdateSpotData></UpdateSpotData></PrivetRoute>,
-        loader:({params})=>fetch(`https://tropical-tours-web-server.vercel.app/spots/${params.id}`)
+        path: "/updateSpotData/:id",
+        element: (
+          <PrivetRoute>
+            <UpdateSpotData></UpdateSpotData>
+          </PrivetRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(
+            `https://tropical-tours-web-server.vercel.app/spots/${params.id}`
+          ),
       },
       {
-        path:"/countrySpots/:country_name",
-        element:<CountrySpots></CountrySpots>,
-      }
+        path: "/countrySpots/:country_name",
+        element: <CountrySpots></CountrySpots>,
+      },
     ],
   },
 ]);

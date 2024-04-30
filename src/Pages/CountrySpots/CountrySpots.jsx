@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import loadinglottie from "../../../public/Lottie/loading.json"
 import CountrySpotsCard from "../../Components/ContrySpotsCard/CountrySpotsCard";
 import lottie4 from "../../../public/Lottie/nodatalottie.json"
+import { Helmet } from "react-helmet-async";
 
 const CountrySpots = () => {
     const [selectedCountrySpots, setSelectedCountrySpots] = useState([]);
@@ -25,6 +26,9 @@ const CountrySpots = () => {
     return (
       loading ? (
         <div className="flex justify-center items-center">
+          <Helmet>
+            <title>Tropical Tours | {country_name}</title>
+          </Helmet>
           <Lottie style={{width:"300px"}} animationData={loadinglottie} />
         </div>
       ) : (
