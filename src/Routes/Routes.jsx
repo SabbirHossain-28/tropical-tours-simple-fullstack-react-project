@@ -21,7 +21,7 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:5000/spots"),
+        loader: () => fetch("https://tropical-tours-web-server.vercel.app/spots"),
       },
       {
         path: "/login",
@@ -42,7 +42,7 @@ export const router = createBrowserRouter([
       {
         path: "/allSpots",
         element: <AllSpots></AllSpots>,
-        loader: () => fetch("http://localhost:5000/spots"),
+        loader: () => fetch("https://tropical-tours-web-server.vercel.app/spots"),
       },
       {
         path: "/spotDetails/:id",
@@ -52,7 +52,7 @@ export const router = createBrowserRouter([
           </PrivetRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/spots/${params.id}`),
+          fetch(`https://tropical-tours-web-server.vercel.app/spots/${params.id}`),
       },
       {
         path: "/myAddedSpotList",
@@ -61,12 +61,12 @@ export const router = createBrowserRouter([
             <MyAddedSpotList></MyAddedSpotList>
           </PrivetRoute>
         ),
-        loader:()=>fetch("http://localhost:5000/spots"),
+        loader:()=>fetch("https://tropical-tours-web-server.vercel.app/spots"),
       },
       {
         path:"/updateSpotData/:id",
         element:<PrivetRoute><UpdateSpotData></UpdateSpotData></PrivetRoute>,
-        loader:({params})=>fetch(`http://localhost:5000/spots/${params.id}`)
+        loader:({params})=>fetch(`https://tropical-tours-web-server.vercel.app/spots/${params.id}`)
       },
       {
         path:"/countrySpots/:country_name",

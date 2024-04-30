@@ -10,7 +10,7 @@ const CountrySpots = () => {
     const [loading,setLoading]=useState(true)
     const { country_name } = useParams();
     useEffect(() => {
-      fetch(`http://localhost:5000/spoots?country_name=${country_name}`)
+      fetch(`https://tropical-tours-web-server.vercel.app/spoots?country_name=${country_name}`)
         .then((res) => res.json())
         .then((data) => {
           setSelectedCountrySpots(data);

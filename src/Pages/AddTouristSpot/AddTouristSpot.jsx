@@ -14,7 +14,7 @@ const AddTouristSpot = () => {
 
   const onSubmit = (data) => {
     console.log(data);
-    fetch("http://localhost:5000/spots",{
+    fetch("https://tropical-tours-web-server.vercel.app/spots",{
         method:"POST",
         headers:{"Content-type":"application/json"},
         body:JSON.stringify(data)
