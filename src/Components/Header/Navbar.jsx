@@ -7,9 +7,11 @@ import { IoPersonCircleOutline } from "react-icons/io5";
 import { Tooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
 import Swal from "sweetalert2";
+import { useTheme } from "../../Theme/ThemeContext";
 
 const Navbar = () => {
   const { user, userLogOut } = useContext(AuthContext);
+  const { toggleTheme } = useTheme();
   const navigate=useNavigate()
   console.log(user);
   const navlinks = (
@@ -82,9 +84,10 @@ const Navbar = () => {
             <button className="btn">
               <NavLink to="/login">Login</NavLink>
             </button>
-            <button className="btn">
+            <button className="btn ">
               <NavLink to="/register">Register</NavLink>
             </button>
+            <button onClick={toggleTheme}>Theme Changer</button>
           </div>
           <div className={`avatar ${user ? "online" : "offline"} online`}>
             <div id="btn-tooltip" className="w-14 rounded-full">
