@@ -65,7 +65,7 @@ const Register = () => {
           Tropical Tours | Register
         </title>
       </Helmet>
-      <div className="max-w-7xl mx-auto flex flex-col  lg:flex-row gap-4 border rounded-lg shadow-xl p-4">
+      <div className="max-w-7xl mx-auto flex flex-col  lg:flex-row gap-4 border rounded-lg shadow-xl p-4 bg-[#f3f9fc]">
         <div className=" lg:w-1/2 flex justify-center items-center">
           <img className="w-full" src={formImage1} alt="" />
         </div>

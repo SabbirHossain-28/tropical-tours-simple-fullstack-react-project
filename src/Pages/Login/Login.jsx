@@ -117,7 +117,7 @@ const Login = () => {
       <Helmet>
         <title>Tropical Tours | Login</title>
       </Helmet>
-      <div className="flex flex-col md:flex-row lg:flex-row max-w-7xl mx-auto border shadow-xl rounded-lg">
+      <div className="flex flex-col md:flex-row lg:flex-row max-w-7xl mx-auto border shadow-xl rounded-lg bg-[#f3f9fc]">
         <div className="w-full md:w-1/2 lg:w-1/2">
           <Lottie style={{ width: "100%" }} animationData={lottie2} />
         </div>
