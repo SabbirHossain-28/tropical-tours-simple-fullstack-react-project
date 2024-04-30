@@ -15,7 +15,7 @@ const CountriesCard = ({ countryData }) => {
         <h2 className="font-medium text-slate-800 sm:text-lg md:text-xl dark:text-white/90">
           {country_name}
         </h2>
-        <div className="flex gap-1 font-raleway">
+        <div className="flex gap-1 text-gray-400 font-raleway">
           <p>{description}</p>
         </div>
       </div>

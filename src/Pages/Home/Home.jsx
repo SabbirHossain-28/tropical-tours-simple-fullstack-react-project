@@ -8,14 +8,19 @@ import { Helmet } from "react-helmet-async";
 
 const Home = () => {
   const [theme, setTheme] = useState("light");
-  const toggleTheme = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
-    localStorage.setItem("localTheme", theme);
-  };
+  
   useEffect(() => {
-    const storedUser = localStorage.getItem("localTheme");
-    document.querySelector("html").setAttribute("data-theme", storedUser);
-  }, [theme]);
+    const storedTheme = localStorage.getItem("localTheme");
+    setTheme(storedTheme || "light");
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme = theme === "dark" ? "light" : "dark";
+    setTheme(newTheme);
+    localStorage.setItem("localTheme", newTheme);
+    document.documentElement.setAttribute("data-theme", newTheme);
+  };
+  
   return (
     <div className="p-4 md:p-6 lg:p-0">
       <Helmet>

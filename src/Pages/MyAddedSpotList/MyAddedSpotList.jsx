@@ -44,7 +44,7 @@ const MyAddedSpotList = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto mb-12 mt-12">
+    <div className="max-w-7xl mx-auto mb-12 mt-12 bg-[#f3f9fc] p-6">
       <Helmet>
         <title>Tropical Tours | My Spot</title>
       </Helmet>
@@ -53,7 +53,7 @@ const MyAddedSpotList = () => {
           Here is my added spot list data
         </h2>
       </div>
-      <div className="border bg-[#f3f9fc] p-4">
+      <div className="border  p-4">
         <div className="overflow-x-auto ">
           <table className="table">
             {/* head */}
