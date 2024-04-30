@@ -10,7 +10,7 @@ import Swal from "sweetalert2";
 
 const Navbar = () => {
   const { user, userLogOut } = useContext(AuthContext);
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   console.log(user);
   const navlinks = (
     <>
@@ -28,9 +28,8 @@ const Navbar = () => {
       </li>
     </>
   );
-  const handleUserLogOut=()=>{
-    userLogOut()
-    .then(()=>{
+  const handleUserLogOut = () => {
+    userLogOut().then(() => {
       Swal.fire({
         title: "You are successfully logout",
         text: "You won't be able to revert this!",
@@ -38,11 +37,11 @@ const Navbar = () => {
         confirmButtonColor: "#3085d6",
       }).then((result) => {
         if (result.isConfirmed) {
-          navigate("/")
+          navigate("/");
         }
       });
-    })
-  }
+    });
+  };
   return (
     <div className="bg-slate-200">
       <div className="navbar max-w-7xl mx-auto">
@@ -72,20 +71,26 @@ const Navbar = () => {
             </ul>
           </div>
           <Lottie style={{ width: "100px" }} animationData={lottie1} />
-          <a className="text-lg md:text-3xl lg:text-4xl font-bold font-rancho">Tropical Tours</a>
+          <a className="text-lg md:text-3xl lg:text-4xl font-bold font-rancho">
+            Tropical Tours
+          </a>
         </div>
         <div className="navbar-center hidden lg:flex font-raleway">
           <ul className="menu menu-horizontal px-1">{navlinks}</ul>
         </div>
         <div className="navbar-end flex gap-2 mr-8">
-          <div className="flex gap-2 font-raleway">
-            <button className="btn btn-sm md:btn-md lg:btn">
-              <NavLink to="/login">Login</NavLink>
-            </button>
-            <button className=" btn btn-sm md:btn-md lg:btn ">
-              <NavLink to="/register">Register</NavLink>
-            </button>
-          </div>
+          {user ? (
+            <div></div>
+          ) : (
+            <div className="flex gap-2 font-raleway">
+              <button className="btn btn-sm md:btn-md lg:btn">
+                <NavLink to="/login">Login</NavLink>
+              </button>
+              <button className=" btn btn-sm md:btn-md lg:btn ">
+                <NavLink to="/register">Register</NavLink>
+              </button>
+            </div>
+          )}
           <div className={`avatar ${user ? "online" : "offline"} online`}>
             <div id="btn-tooltip" className="w-14 rounded-full">
               {user ? (
@@ -110,7 +115,7 @@ const Navbar = () => {
               >
                 Logout
               </button>
-              <p className="text-xs ">{user?user.displayName:"User"}</p>
+              <p className="text-xs ">{user?.displayName ? user.displayName : "No User"}</p>
             </Tooltip>
           </div>
         </div>
