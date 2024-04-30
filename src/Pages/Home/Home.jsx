@@ -10,9 +10,11 @@ const Home = () => {
   const [theme, setTheme] = useState("light");
   const toggleTheme = () => {
     setTheme(theme === "dark" ? "light" : "dark");
+    localStorage.setItem("localTheme", theme);
   };
   useEffect(() => {
-    document.querySelector("html").setAttribute("data-theme", theme);
+    const storedUser = localStorage.getItem("localTheme");
+    document.querySelector("html").setAttribute("data-theme", storedUser);
   }, [theme]);
   return (
     <div className="p-4 md:p-6 lg:p-0">
