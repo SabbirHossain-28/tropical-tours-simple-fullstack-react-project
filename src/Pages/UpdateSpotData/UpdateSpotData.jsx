@@ -83,7 +83,7 @@ const UpdateSpotData = () => {
                     name="spot"
                     id="spot"
                     placeholder="Enter spot name"
-                    className="font-raleway text-[#1B1A1A99] p-2 w-full"
+                    className="font-raleway  p-2 w-full"
                     defaultValue={spot}
                     {...register("spot", { required: true })}
                   />
@@ -131,7 +131,7 @@ const UpdateSpotData = () => {
                     name="location"
                     id="location"
                     placeholder="Enter spot location"
-                    className="font-raleway text-[#1B1A1A99] p-2 w-full"
+                    className="font-raleway  p-2 w-full"
                     defaultValue={location}
                     {...register("location", { required: true })}
                   />
@@ -151,7 +151,7 @@ const UpdateSpotData = () => {
                     name="cost"
                     id="cost"
                     placeholder="Enter average cost"
-                    className="font-raleway text-[#1B1A1A99] p-2 w-full"
+                    className="font-raleway  p-2 w-full"
                     defaultValue={cost}
                     {...register("cost", { required: true })}
                   />
@@ -173,7 +173,7 @@ const UpdateSpotData = () => {
                     name="season"
                     id="season"
                     placeholder="Enter spot seasonality"
-                    className="font-raleway text-[#1B1A1A99] p-2 w-full"
+                    className="font-raleway  p-2 w-full"
                     defaultValue={season}
                     {...register("season", { required: true })}
                   />
@@ -193,7 +193,7 @@ const UpdateSpotData = () => {
                     name="time"
                     id="time"
                     placeholder="Enter travel time"
-                    className="font-raleway text-[#1B1A1A99] p-2 w-full"
+                    className="font-raleway  p-2 w-full"
                     defaultValue={time}
                     {...register("time", { required: true })}
                   />
@@ -215,7 +215,7 @@ const UpdateSpotData = () => {
                     name="visitors"
                     id="visitors"
                     placeholder="Enter visitors quantity "
-                    className="font-raleway text-[#1B1A1A99] p-2 w-full"
+                    className="font-raleway  p-2 w-full"
                     defaultValue={visitors}
                     {...register("visitors", { required: true })}
                   />
@@ -235,7 +235,7 @@ const UpdateSpotData = () => {
                     name="description"
                     id="description"
                     placeholder="Enter spot description"
-                    className="font-raleway text-[#1B1A1A99] p-2 w-full"
+                    className="font-raleway  p-2 w-full"
                     defaultValue={description}
                     {...register("description", { required: true })}
                   />
@@ -256,7 +256,7 @@ const UpdateSpotData = () => {
                   name="photo"
                   id="Photo"
                   placeholder="Enter photo URL"
-                  className="font-raleway text-[#1B1A1A99] p-2 w-full"
+                  className="font-raleway  p-2 w-full"
                   defaultValue={photo}
                   {...register("photo", { required: true })}
                 />

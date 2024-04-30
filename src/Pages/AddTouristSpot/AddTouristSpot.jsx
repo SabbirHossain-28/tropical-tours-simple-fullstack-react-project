@@ -69,7 +69,7 @@ const AddTouristSpot = () => {
                     name="email"
                     id="email"
                     placeholder="Enter your email address"
-                    className="font-raleway text-[#1B1A1A99] p-2 w-full"
+                    className="font-raleway  p-2 w-full"
                     {...register("email", { required: true })}
                   />
                   {errors.email && (
@@ -88,7 +88,7 @@ const AddTouristSpot = () => {
                     name="name"
                     id="name"
                     placeholder="Enter Your full-name"
-                    className="font-raleway text-[#1B1A1A99] p-2 w-full"
+                    className="font-raleway  p-2 w-full"
                     {...register("name", { required: true })}
                   />
                   {errors.name && (
@@ -109,7 +109,7 @@ const AddTouristSpot = () => {
                     name="spot"
                     id="spot"
                     placeholder="Enter spot name"
-                    className="font-raleway text-[#1B1A1A99] p-2 w-full"
+                    className="font-raleway  p-2 w-full"
                     {...register("spot", { required: true })}
                   />
                   {errors.spot && (
@@ -155,7 +155,7 @@ const AddTouristSpot = () => {
                     name="location"
                     id="location"
                     placeholder="Enter spot location"
-                    className="font-raleway text-[#1B1A1A99] p-2 w-full"
+                    className="font-raleway  p-2 w-full"
                     {...register("location", { required: true })}
                   />
                   {errors.location && (
@@ -174,7 +174,7 @@ const AddTouristSpot = () => {
                     name="cost"
                     id="cost"
                     placeholder="Enter average cost"
-                    className="font-raleway text-[#1B1A1A99] p-2 w-full"
+                    className="font-raleway  p-2 w-full"
                     {...register("cost", { required: true })}
                   />
                   {errors.cost && (
@@ -195,7 +195,7 @@ const AddTouristSpot = () => {
                     name="season"
                     id="season"
                     placeholder="Enter spot seasonality"
-                    className="font-raleway text-[#1B1A1A99] p-2 w-full"
+                    className="font-raleway  p-2 w-full"
                     {...register("season", { required: true })}
                   />
                   {errors.season && (
@@ -214,7 +214,7 @@ const AddTouristSpot = () => {
                     name="time"
                     id="time"
                     placeholder="Enter travel time"
-                    className="font-raleway text-[#1B1A1A99] p-2 w-full"
+                    className="font-raleway  p-2 w-full"
                     {...register("time", { required: true })}
                   />
                   {errors.time && (
@@ -235,7 +235,7 @@ const AddTouristSpot = () => {
                     name="visitors"
                     id="visitors"
                     placeholder="Enter visitors quantity "
-                    className="font-raleway text-[#1B1A1A99] p-2 w-full"
+                    className="font-raleway  p-2 w-full"
                     {...register("visitors", { required: true })}
                   />
                   {errors.visitors && (
@@ -254,7 +254,7 @@ const AddTouristSpot = () => {
                     name="description"
                     id="description"
                     placeholder="Enter spot description"
-                    className="font-raleway text-[#1B1A1A99] p-2 w-full"
+                    className="font-raleway  p-2 w-full"
                     {...register("description", { required: true })}
                   />
                   {errors.description && (
@@ -274,7 +274,7 @@ const AddTouristSpot = () => {
                   name="photo"
                   id="Photo"
                   placeholder="Enter photo URL"
-                  className="font-raleway text-[#1B1A1A99] p-2 w-full"
+                  className="font-raleway  p-2 w-full"
                   {...register("photo", { required: true })}
                 />
                 {errors.photo && (
