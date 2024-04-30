@@ -123,7 +123,7 @@ const Login = () => {
         </div>
         <div className="w-full md:w-1/2 lg:w-1/2 p-4 flex flex-col justify-center">
           <div className="text-center mb-8">
-            <h1 className="text-4xl text-[#374151] dark:text-white font-bold font-rancho">
+            <h1 className="text-4xl text-[#374151]  font-bold font-rancho">
               Login here
             </h1>
           </div>
