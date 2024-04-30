@@ -26,7 +26,6 @@ const UpdateSpotData = () => {
     country_name,
   } = loadedSpotDataForUpdate;
   const onSubmit = (data) => {
-    console.log(data);
 
     fetch(`http://localhost:5000/spots/${_id}`, {
       method: "PUT",
@@ -37,7 +36,6 @@ const UpdateSpotData = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.modifiedCount) {
           Swal.fire({
             title: "Successfully Updated!",

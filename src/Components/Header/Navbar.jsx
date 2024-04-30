@@ -11,7 +11,6 @@ import Swal from "sweetalert2";
 const Navbar = () => {
   const { user, userLogOut } = useContext(AuthContext);
   const navigate = useNavigate();
-  console.log(user);
   const navlinks = (
     <>
       <li>

@@ -9,7 +9,6 @@ const Countries = () => {
         .then(res => res.json())
         .then(data => setCountries(data))
     },[])
-    console.log(countries);
     return (
         <div className="max-w-7xl mx-auto mb-12 mt-12 bg-[#f3f9fc] p-8">
             <div className="text-center mb-10">

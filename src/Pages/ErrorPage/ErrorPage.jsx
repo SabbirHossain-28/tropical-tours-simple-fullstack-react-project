@@ -6,7 +6,6 @@ import lottie4 from "../../../public/Lottie/errorlottie.json"
 
 const ErrorPage = () => {
     const error=useRouteError();
-    console.log(error);
     return (
         <div className="flex justify-center items-center min-h-screen bg-[#f3f9fc]">
       <div className="flex flex-col justify-center items-center">

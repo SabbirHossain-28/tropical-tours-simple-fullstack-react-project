@@ -32,7 +32,6 @@ const Register = () => {
     }
     createUser(email, password).then((userCredential) => {
       updateUserProfile(name, photo).then(() => {
-        console.log("User update successfully");
       });
       if (userCredential) {
         Swal.fire({

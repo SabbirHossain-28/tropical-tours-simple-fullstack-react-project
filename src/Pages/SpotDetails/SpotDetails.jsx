@@ -6,7 +6,6 @@ import { useLoaderData} from "react-router-dom";
 const SpotDetails = () => {
     
   const loadedSpotDetailsData = useLoaderData();
-  console.log(loadedSpotDetailsData);
   const {photo,spot,cost,season,visitors,time,location,description}=loadedSpotDetailsData;
   return (
     <section className="flex min-h-[700px]  max-w-7xl mx-auto items-center justify-center bg-[#f3f9fc] px-8 mt-12 mb-12">

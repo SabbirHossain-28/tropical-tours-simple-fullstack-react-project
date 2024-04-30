@@ -13,7 +13,6 @@ const MyAddedSpotList = () => {
   );
 
   const handleDelete = (_id) => {
-    console.log(_id);
     Swal.fire({
       title: "Are you sure to delete?",
       text: "This Data are not available in the interface!",
