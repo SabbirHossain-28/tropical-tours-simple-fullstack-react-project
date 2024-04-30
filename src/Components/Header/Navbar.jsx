@@ -110,7 +110,7 @@ const Navbar = () => {
               >
                 Logout
               </button>
-              <p className="text-xs ">{user?.displayName}</p>
+              <p className="text-xs ">{user?user.displayName:"User"}</p>
             </Tooltip>
           </div>
         </div>

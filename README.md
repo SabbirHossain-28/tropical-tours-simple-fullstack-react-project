@@ -2,7 +2,7 @@
 
 Welcome to Tropical Tours! Explore the beauty of Southeast Asia with our comprehensive tourism management website. From stunning beaches to lush rainforests, discover the wonders of this tropical paradise.
 
-Visit the live site [here](https://www.tropicaltours.com).
+Visit the live site [https://tropical-tours-77.netlify.app/].
 
 ## Website Category: Tourism Management
 
