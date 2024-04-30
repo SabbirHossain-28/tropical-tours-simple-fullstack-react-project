@@ -2,6 +2,7 @@ import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const AddTouristSpot = () => {
   const {
@@ -35,6 +36,9 @@ const AddTouristSpot = () => {
   };
   return (
     <div>
+      <Helmet>
+        <title>Tropical Tours|Add Spot</title>
+      </Helmet>
       <div className="max-w-7xl mx-auto mt-12 mb-12">
         <div className="bg-[#f3f9fc] p-10 rounded-md">
           <div className="text-center mb-4">

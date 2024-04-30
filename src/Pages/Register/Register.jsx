@@ -7,6 +7,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import formImage1 from "../../assets/images/draw1.jpg";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
   const { createUser, updateUserProfile, userLogOut } = useContext(AuthContext);
@@ -59,6 +60,11 @@ const Register = () => {
   };
   return (
     <div className="p-14 ">
+      <Helmet>
+        <title>
+          Tropical Tours | Register
+        </title>
+      </Helmet>
       <div className="max-w-7xl mx-auto flex flex-col  lg:flex-row gap-4 border rounded-lg shadow-xl p-4">
         <div className=" lg:w-1/2 flex justify-center items-center">
           <img className="w-full" src={formImage1} alt="" />

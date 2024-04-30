@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { CgDollar } from "react-icons/cg";
 import { FaArrowLeft } from "react-icons/fa";
 import { useLoaderData} from "react-router-dom";
@@ -9,6 +10,9 @@ const SpotDetails = () => {
   const {photo,spot,cost,season,visitors,time,location,description}=loadedSpotDetailsData;
   return (
     <section className="flex min-h-[700px]  max-w-7xl mx-auto items-center justify-center bg-[#f3f9fc] px-8 mt-12 mb-12">
+      <Helmet>
+        <title>Tropical Tours|Spot Details</title>
+      </Helmet>
       <div className="flex w-full max-w-6xl gap-10 lg:flex-row flex-col items-center justify-between">
         <div className="max-w-lg space-y-3">
         <div>

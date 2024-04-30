@@ -4,6 +4,7 @@ import Countries from "../../Components/Countries/Countries";
 import TouristSpots from "../../Components/TouristSpots/TouristSpots";
 import ContactUs from "../../Components/ContactUs/ContactUs";
 import FeqSection from "../../Components/FAQ/FaqSection";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
   const [theme, setTheme] = useState("light");
@@ -15,6 +16,9 @@ const Home = () => {
   }, [theme]);
   return (
     <div className="p-4 md:p-6 lg:p-0">
+      <Helmet>
+        <title>Tropical Tours | Home</title>
+      </Helmet>
       <div className="max-w-7xl mx-auto mt-4">
       <label className="swap swap-rotate">
         <input onClick={toggleTheme} type="checkbox" />

@@ -2,6 +2,7 @@ import { useLoaderData } from "react-router-dom";
 import AllSpotsCard from "./AllSpotsCard";
 import { useState } from "react";
 import { LuArrowBigRightDash } from "react-icons/lu";
+import { Helmet } from "react-helmet-async";
 
 const AllSpots = () => {
   const allTouristSpotsData = useLoaderData();
@@ -22,6 +23,9 @@ const AllSpots = () => {
 
   return (
     <div className="max-w-7xl mx-auto bg-[#f3f9fc] p-8 mt-12 mb-12">
+      <Helmet>
+        <title>Tropical Tours | All Spots</title>
+      </Helmet>
       <div className="text-center mb-6">
         <h2 className="text-xl md:text-2xl lg:text-5xl font-bold font-rancho text-[#374151] mb-6">
           Explore All Popular Tourist Spots

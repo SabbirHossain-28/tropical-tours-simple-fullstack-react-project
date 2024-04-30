@@ -10,6 +10,7 @@ import lottie2 from "../../../public/Lottie/loginimg.json";
 import { AuthContext } from "../../AuthContextProvider/ContextProvider";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const { userLogin, signInWithGoogle,signInWithGitHub } = useContext(AuthContext);
@@ -113,6 +114,9 @@ const Login = () => {
   };
   return (
     <div className="p-14">
+      <Helmet>
+        <title>Tropical Tours | Login</title>
+      </Helmet>
       <div className="flex flex-col md:flex-row lg:flex-row max-w-7xl mx-auto border shadow-xl rounded-lg">
         <div className="w-full md:w-1/2 lg:w-1/2">
           <Lottie style={{ width: "100%" }} animationData={lottie2} />

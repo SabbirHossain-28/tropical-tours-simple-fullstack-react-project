@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../AuthContextProvider/ContextProvider";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const MyAddedSpotList = () => {
   const { user } = useContext(AuthContext);
@@ -14,8 +15,8 @@ const MyAddedSpotList = () => {
   const handleDelete = (_id) => {
     console.log(_id);
     Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
+      title: "Are you sure to delete?",
+      text: "This Data are not available in the interface!",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -44,6 +45,9 @@ const MyAddedSpotList = () => {
 
   return (
     <div className="max-w-7xl mx-auto mb-12 mt-12">
+      <Helmet>
+        <title>Tropical Tours | My Spot</title>
+      </Helmet>
       <div className="text-center mb-12">
         <h2 className="text-4xl font-rancho text-[#262424] font-semibold">
           Here is my added spot list data
