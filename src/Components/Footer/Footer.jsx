@@ -2,24 +2,24 @@ import travelGif from "../../assets/images/travel.gif"
 
 const Footer = () => {
   return (
-    <div className="bg-slate-200">
+    <div className="bg-slate-200 ">
       <footer className="flex flex-col md:flex-row lg:flex-row items-center md:items-start lg:items-start md:justify-between lg:justify-between gap-4 md:gap-0 lg:gap-0 p-10 bg-slate-200 max-w-7xl mx-auto text-base-content">
         <nav className="text-center md:text-left lg:text-left">
           <h6 className="footer-title">Services</h6>
           <div className="flex flex-col">
-          <a className="link link-hover">Branding</a>
-          <a className="link link-hover">Design</a>
-          <a className="link link-hover">Marketing</a>
-          <a className="link link-hover">Advertisement</a>
+          <a className="link link-hover">Spots Selection</a>
+          <a className="link link-hover">Visa Processing</a>
+          <a className="link link-hover">Resort Booking</a>
+          <a className="link link-hover">Passport Clearench</a>
           </div>
         </nav>
         <nav className="text-center md:text-left lg:text-left">
           <h6 className="footer-title">Company</h6>
           <div className="flex flex-col">
-          <a className="link link-hover">About us</a>
-          <a className="link link-hover">Contact</a>
-          <a className="link link-hover">Jobs</a>
-          <a className="link link-hover">Press kit</a>
+          <a className="link link-hover">Home</a>
+          <a className="link link-hover">All Tourist Spots</a>
+          <a className="link link-hover">Login</a>
+          <a className="link link-hover">Register</a>
           </div>
         </nav>
         <nav className="text-center md:text-left lg:text-left">
@@ -75,8 +75,8 @@ const Footer = () => {
           <img className="w-32 rounded-full" src={travelGif} alt="" />
           </div>
           <p>
-            ACME Industries Ltd. <br />
-            Copyright © 2024 - All right reserved by Tropical Tours Travel Agency Ltd
+          Tropical Tours Travel Agency Ltd. <br />
+            Copyright © 2024 - All right reserved by Tropical Tours Travel Agency Ltd.
           </p>
         </div>
       </footer>
