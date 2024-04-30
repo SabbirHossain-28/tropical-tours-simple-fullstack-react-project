@@ -66,8 +66,8 @@ const UpdateSpotData = () => {
           </div>
           <div>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-              <div className="flex gap-4">
-                <div className="w-1/2">
+              <div className="flex flex-col md:flex-row gap-4">
+                <div className="w-full md:w-1/2">
                   <label
                     className="block font-raleway text-xl text-[#1B1A1ACC]"
                     htmlFor="spot"
@@ -87,7 +87,7 @@ const UpdateSpotData = () => {
                     <span className="text-red-500">This field is required</span>
                   )}
                 </div>
-                <div className="w-1/2">
+                <div className="w-full md:w-1/2">
                   <label
                     className="block font-raleway text-xl text-[#1B1A1ACC]"
                     htmlFor="Chef"
@@ -114,8 +114,8 @@ const UpdateSpotData = () => {
                   )}
                 </div>
               </div>
-              <div className="flex gap-4">
-                <div className="w-1/2">
+              <div className="flex flex-col md:flex-row gap-4">
+                <div className="w-full md:w-1/2">
                   <label
                     className="block font-raleway text-xl text-[#1B1A1ACC]"
                     htmlFor="location"
@@ -135,7 +135,7 @@ const UpdateSpotData = () => {
                     <span className="text-red-500">This field is required</span>
                   )}
                 </div>
-                <div className="w-1/2">
+                <div className="w-full md:w-1/2">
                   <label
                     className="block font-raleway text-xl text-[#1B1A1ACC]"
                     htmlFor="cost"
@@ -156,8 +156,8 @@ const UpdateSpotData = () => {
                   )}
                 </div>
               </div>
-              <div className="flex gap-4">
-                <div className="w-1/2">
+              <div className="flex flex-col md:flex-row gap-4">
+                <div className="w-full md:w-1/2">
                   <label
                     className="block font-raleway text-xl text-[#1B1A1ACC]"
                     htmlFor="season"
@@ -177,7 +177,7 @@ const UpdateSpotData = () => {
                     <span className="text-red-500">This field is required</span>
                   )}
                 </div>
-                <div className="w-1/2">
+                <div className="w-full md:w-1/2">
                   <label
                     className="block font-raleway text-xl text-[#1B1A1ACC]"
                     htmlFor="time"
@@ -198,8 +198,8 @@ const UpdateSpotData = () => {
                   )}
                 </div>
               </div>
-              <div className="flex gap-4">
-                <div className="w-1/2">
+              <div className="flex flex-col md:flex-row gap-4">
+                <div className="w-full md:w-1/2">
                   <label
                     className="block font-raleway text-xl text-[#1B1A1ACC]"
                     htmlFor="visitors"
@@ -219,7 +219,7 @@ const UpdateSpotData = () => {
                     <span className="text-red-500">This field is required</span>
                   )}
                 </div>
-                <div className="w-1/2">
+                <div className="w-full md:w-1/2">
                   <label
                     className="block font-raleway text-xl text-[#1B1A1ACC]"
                     htmlFor="description"
@@ -263,7 +263,7 @@ const UpdateSpotData = () => {
               <div className="flex justify-between items-center">
                 <div>
                   <input
-                    className="font-raleway font-semibold text-2xl text-white bg-[#2f9fb8] rounded-sm p-2"
+                    className="font-raleway font-semibold text-2xl text-white bg-[#2f9fb8] rounded-sm p-1 md:p-2"
                     type="submit"
                     value="Update"
                   />
