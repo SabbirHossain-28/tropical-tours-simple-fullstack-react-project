@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyC5-mKaKTs52EcgCq9-4anj4Km64pdzRFU",
-  authDomain: "tropical-tours-project.firebaseapp.com",
-  projectId: "tropical-tours-project",
-  storageBucket: "tropical-tours-project.appspot.com",
-  messagingSenderId: "750161133287",
-  appId: "1:750161133287:web:e9c3f5970f7e3ee0cf6c42"
+  apiKey:import.meta.env.VITE_APIKEY,
+  authDomain:import.meta.env.VITE_AUTHDOMAIN,
+  projectId:import.meta.env.VITE_PROJECTID,
+  storageBucket:import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId:import.meta.env.VITE_MESSAGINGSENDERID,
+  appId:import.meta.env.VITE_APPID,
 };
 
 // Initialize Firebase

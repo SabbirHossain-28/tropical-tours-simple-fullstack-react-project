@@ -48,7 +48,7 @@ const Navbar = () => {
       <div className="navbar max-w-7xl mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+            <div tabIndex={0} role="button" className="lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -72,17 +72,17 @@ const Navbar = () => {
             </ul>
           </div>
           <Lottie style={{ width: "100px" }} animationData={lottie1} />
-          <a className="text-4xl font-bold font-rancho">Tropical Tours</a>
+          <a className="text-lg md:text-3xl lg:text-4xl font-bold font-rancho">Tropical Tours</a>
         </div>
         <div className="navbar-center hidden lg:flex font-raleway">
           <ul className="menu menu-horizontal px-1">{navlinks}</ul>
         </div>
         <div className="navbar-end flex gap-2 mr-8">
           <div className="flex gap-2 font-raleway">
-            <button className="btn">
+            <button className="btn btn-sm md:btn-md lg:btn">
               <NavLink to="/login">Login</NavLink>
             </button>
-            <button className="btn ">
+            <button className=" btn btn-sm md:btn-md lg:btn ">
               <NavLink to="/register">Register</NavLink>
             </button>
           </div>

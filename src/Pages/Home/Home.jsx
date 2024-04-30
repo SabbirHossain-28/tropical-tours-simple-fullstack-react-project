@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Banner } from "../../Components/Banner/Baneer";
 import Countries from "../../Components/Countries/Countries";
 import TouristSpots from "../../Components/TouristSpots/TouristSpots";
+import ContactUs from "../../Components/ContactUs/ContactUs";
+import FeqSection from "../../Components/FAQ/FaqSection";
 
 const Home = () => {
   const [theme, setTheme] = useState("light");
@@ -12,7 +14,7 @@ const Home = () => {
     document.querySelector("html").setAttribute("data-theme", theme);
   }, [theme]);
   return (
-    <div >
+    <div className="p-4 md:p-6 lg:p-0">
       <div className="max-w-7xl mx-auto mt-4">
       <label className="swap swap-rotate">
         <input onClick={toggleTheme} type="checkbox" />
@@ -23,6 +25,8 @@ const Home = () => {
       <Banner></Banner>
       <TouristSpots></TouristSpots>
       <Countries></Countries>
+      <FeqSection></FeqSection>
+      <ContactUs></ContactUs>
     </div>
   );
 };

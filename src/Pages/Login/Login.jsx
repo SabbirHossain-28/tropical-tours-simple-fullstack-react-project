@@ -113,11 +113,11 @@ const Login = () => {
   };
   return (
     <div className="p-14">
-      <div className="flex max-w-7xl mx-auto border shadow-xl rounded-lg">
-        <div className="w-1/2">
+      <div className="flex flex-col md:flex-row lg:flex-row max-w-7xl mx-auto border shadow-xl rounded-lg">
+        <div className="w-full md:w-1/2 lg:w-1/2">
           <Lottie style={{ width: "100%" }} animationData={lottie2} />
         </div>
-        <div className="w-1/2 p-4 flex flex-col justify-center">
+        <div className="w-full md:w-1/2 lg:w-1/2 p-4 flex flex-col justify-center">
           <div className="text-center mb-8">
             <h1 className="text-4xl text-[#374151] font-bold font-rancho">
               Login here
@@ -171,7 +171,7 @@ const Login = () => {
             <div className="divider font-rancho text-[#374151] text-lg font-bold">OR</div>
             <div className="text-center">
               <div className="mb-4">
-                <p className="font-rancho text-[[#374151] text-2xl font-bold">Log in with</p>
+                <p className="font-rancho text-[#374151] text-2xl font-bold">Log in with</p>
               </div>
               <div className="flex justify-center gap-4 mb-4">
                 <button onClick={handleGoogleSignin} className="btn">
